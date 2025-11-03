@@ -1,0 +1,47 @@
+{% extends 'base.html' %} 
+{% block title %}Login{% endblock %} 
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-4 mt-5">
+        <div class="card p-4 shadow">
+            <h4 class="text-center mb-3">🔐 Iniciar sesión</h4>
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    {{ form.username.label_tag }} {{ form.username }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.password.label_tag }}
+                    <div class="input-group">
+                        {{ form.password }}
+                        <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                            👁️
+                        </button>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary w-100">Ingresar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document
+        .getElementById("togglePassword")
+        .addEventListener("click", function () {
+            let passwordField = document.querySelector(
+                "input[type='password'], input[name='password']"
+            );
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                this.textContent = "🙈";
+            } else {
+                passwordField.type = "password";
+                this.textContent = "👁️";
+            }
+        });
+</script>
+{% endblock %}
