@@ -1,13 +1,37 @@
 {% extends "base.html" %} 
-{% block title %}Producto{% endblock %} 
+{% block title %} {% if editar %}Editar producto {% else %}Nuevo producto {% endif %} {% endblock %} 
 {% block content %}
-<h2>{% if editar %}Editar producto{% else %}Nuevo producto{% endif %}</h2>
+<div class="row justify-content-center">
+  <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 mt-5">
+    <div class="card p-4 shadow">
+      <h4 class="text-center mb-4">
+        {% if editar %}✏️ Editar producto{% else %}📦 Nuevo producto{% endif %}
+      </h4>
 
-<form method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <button class="btn btn-primary">
-    {% if editar %}Actualizar{% else %}Guardar{% endif %}
-  </button>
-  <a href="{% url 'index' %}" class="btn btn-secondary">Cancelar</a>
-</form>
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+
+        <button class="btn btn-primary w-100 mb-2">
+          {% if editar %}Actualizar{% else %}Guardar{% endif %}
+        </button>
+        <a href="{% url 'index' %}" class="btn btn-secondary w-100">Cancelar</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% if error %}
+<script>
+  Swal.fire({
+    icon: "error",
+    title: "❌ Error en el formulario",
+    html: `
+      {% for field, errors in form.errors.items %}
+        <strong>{{ field|capfirst }}:</strong> {{ errors|join:", " }}<br>
+      {% endfor %}
+    `,
+    confirmButtonText: "Aceptar",
+  });
+</script>
+{% endif %} 
 {% endblock %}
