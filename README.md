@@ -1,6 +1,10 @@
 # 📝 Inventario Producto Django
 
-Aplicación web
+Inventario Producto Django es una **Mini-Aplicación Web** que permite gestionar productos de un inventario.
+
+- Los usuarios pueden registrarse, iniciar sesión y realizar operaciones de **CRUD (crear, leer, actualizar y eliminar productos).**
+- La aplicación incluye autenticación de usuarios, paginación en el listado de productos y una **API REST** protegida que devuelve los productos en formato **JSON.**
+- Además, se utilizan alertas interactivas con **SweetAlert2** para mejorar la experiencia del usuario y **Bootstrap** para un diseño responsive.
 
 ## 🖼️ Imagenes de la Aplicacion
 
