@@ -10,9 +10,11 @@ Inventario Producto Django es una **Mini-Aplicación Web** que permite gestionar
 
 - **Login**
 
+  >
+
   - **Usuario:** admintest
   - **Password:** admin123
-    ![Login](https://raw.githubusercontent.com/david99cartagena/prueba_django/refs/heads/main/media/Screenshot_6.png)
+    > ![Login](https://raw.githubusercontent.com/david99cartagena/prueba_django/refs/heads/main/media/Screenshot_6.png)
 
 - **Modulo Inventario**
   ![Modulo Inventario](https://raw.githubusercontent.com/david99cartagena/prueba_django/refs/heads/main/media/Screenshot_7.png)
